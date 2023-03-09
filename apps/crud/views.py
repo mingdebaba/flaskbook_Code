@@ -1,6 +1,7 @@
 from apps.app import db
 from apps.crud.forms import UserForm
 from apps.crud.models import User
+from flask import Blueprint, redirect, render_template, url_for
 from flask_login import login_required
 
 # Blueprintでcrudアプリを生成する
@@ -10,7 +11,6 @@ crud = Blueprint(
     template_folder="templates",
     static_folder="static",
 )
-
 
 
 # indexエンドポイントを作成しindex.htmlを返す
