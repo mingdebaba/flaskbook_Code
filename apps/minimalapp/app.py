@@ -130,7 +130,7 @@ def contact_complete():
 
         if not email:
             flash("メールアドレスは必須です")
-            is_valid = False
+        is_valid = False
 
         try:
             validate_email(email)
@@ -155,7 +155,7 @@ def contact_complete():
         )
 
         # 問い合わせ完了エンドポイントへリダイレクトする
-        flash("問い合わせ内容はメールにて送信しました。問い合わせありがとうございます。")
+        flash("問い合わせありがとうございました。")
 
         # contactエンドポイントへリダイレクトする
         return redirect(url_for("contact_complete"))
@@ -175,7 +175,3 @@ def send_email(to, subject, template, **kwargs):
     msg.body = render_template(template + ".txt", **kwargs)
     msg.html = render_template(template + ".html", **kwargs)
     mail.send(msg)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
